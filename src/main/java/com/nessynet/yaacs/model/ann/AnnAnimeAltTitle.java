@@ -2,17 +2,17 @@ package com.nessynet.yaacs.model.ann;
 
 import java.io.Serializable;
 
-public class AnimeAltTitle implements Serializable {
+public class AnnAnimeAltTitle implements Serializable {
     private static final long serialVersionUID = 1284207134736542599L;
 
     private Long gid;
     private String language;
     private String title;
 
-    public AnimeAltTitle() {
+    public AnnAnimeAltTitle() {
     }
 
-    public AnimeAltTitle(Long gid, String language, String title) {
+    public AnnAnimeAltTitle(Long gid, String language, String title) {
         this.gid = gid;
         this.language = language;
         this.title = title;

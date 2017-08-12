@@ -2,7 +2,7 @@ package com.nessynet.yaacs.model.ann;
 
 import java.io.Serializable;
 
-public class AnimeWebsite implements Serializable {
+public class AnnAnimeWebsite implements Serializable {
     private static final long serialVersionUID = 4740771480041264199L;
     private String type;
     private String language;

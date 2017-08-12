@@ -2,22 +2,23 @@ package com.nessynet.yaacs.model.ann;
 
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.List;
 
-public class Anime implements Serializable {
+public class AnnAnime implements Serializable {
     private static final long serialVersionUID = 5235431395737686598L;
     private Integer id;
     private Integer gid;
     private String type;
     private String name;
     private Instant fetchedOn;
-    private List<AnimeAltTitle> altTitles;
-    private List<String> generes;
+    private List<AnnAnimeAltTitle> altTitles = new ArrayList<>();
+    private List<String> generes = new ArrayList<>();
     private String summary;
     private Integer episodes;
     private Instant startDate;
     private Instant endDate;
-    private List<AnimeWebsite> websites;
+    private List<AnnAnimeWebsite> websites = new ArrayList<>();
     private Integer ratingVotes;
     private Integer ratingScore;
     private List<String> episodeTitles;
@@ -62,11 +63,11 @@ public class Anime implements Serializable {
         this.fetchedOn = fetchedOn;
     }
 
-    public List<AnimeAltTitle> getAltTitles() {
+    public List<AnnAnimeAltTitle> getAltTitles() {
         return altTitles;
     }
 
-    public void setAltTitles(List<AnimeAltTitle> altTitles) {
+    public void setAltTitles(List<AnnAnimeAltTitle> altTitles) {
         this.altTitles = altTitles;
     }
 
@@ -110,11 +111,11 @@ public class Anime implements Serializable {
         this.endDate = endDate;
     }
 
-    public List<AnimeWebsite> getWebsites() {
+    public List<AnnAnimeWebsite> getWebsites() {
         return websites;
     }
 
-    public void setWebsites(List<AnimeWebsite> websites) {
+    public void setWebsites(List<AnnAnimeWebsite> websites) {
         this.websites = websites;
     }
 
