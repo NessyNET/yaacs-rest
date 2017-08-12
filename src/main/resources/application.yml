@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: yaacs-rest
+ann:
+  apiUrl: https://cdn.animenewsnetwork.com/encyclopedia/api.xml
+logging:
+  config: log4j2.xml
