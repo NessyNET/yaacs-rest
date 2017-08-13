@@ -16,7 +16,8 @@ public class MalRestClient {
 
     private RestTemplate restTemplate;
 
-    public MalRestClient(@Autowired RestTemplate restTemplate, @Autowired MalConfigurationProperties malConfigurationProperties){
+    @Autowired
+    public MalRestClient(RestTemplate restTemplate, MalConfigurationProperties malConfigurationProperties){
         this.restTemplate = restTemplate;
         this.malConfigurationProperties=malConfigurationProperties;
     }

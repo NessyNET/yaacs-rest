@@ -9,16 +9,13 @@ import org.springframework.web.client.RestTemplate;
 @Configuration
 public class MalConfiguration {
 
-    @Autowired
-    MalConfigurationProperties malConfigurationProperties;
-
     @Bean
     public RestTemplate restTemplate(){
         return new RestTemplate();
     }
 
     @Bean
-    public MalRestClient malRestClient(){
+    public MalRestClient malRestClient(MalConfigurationProperties malConfigurationProperties){
         return new MalRestClient(restTemplate(), malConfigurationProperties);
     }
 }
