@@ -1,7 +1,9 @@
 spring:
   application:
     name: yaacs-rest
-ann:
-  apiUrl: https://cdn.animenewsnetwork.com/encyclopedia/api.xml
+mal:
+  apiUrl: https://myanimelist.net/api/anime/search.xml?q=
+  username: yaacs-bot
+  password: 86137J4G6OyB0RQy
 logging:
   config: log4j2.xml
