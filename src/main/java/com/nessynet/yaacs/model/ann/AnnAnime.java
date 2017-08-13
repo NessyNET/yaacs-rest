@@ -3,12 +3,13 @@ package com.nessynet.yaacs.model.ann;
 import java.io.Serializable;
 import java.time.Instant;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class AnnAnime implements Serializable {
     private static final long serialVersionUID = 5235431395737686598L;
     private Integer id;
-    private Integer gid;
+    private Integer gid; //TODO: long
     private String type;
     private String name;
     private Instant fetchedOn;
@@ -16,12 +17,11 @@ public class AnnAnime implements Serializable {
     private List<String> generes = new ArrayList<>();
     private String summary;
     private Integer episodes;
-    private Instant startDate;
-    private Instant endDate;
+    private Date startDate;
+    private Date endDate;
     private List<AnnAnimeWebsite> websites = new ArrayList<>();
-    private Integer ratingVotes;
-    private Integer ratingScore;
-    private List<String> episodeTitles;
+    private Double ratingVotes;
+    private Double ratingScore;
 
     public Integer getId() {
         return id;
@@ -95,19 +95,19 @@ public class AnnAnime implements Serializable {
         this.episodes = episodes;
     }
 
-    public Instant getStartDate() {
+    public Date getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Instant startDate) {
+    public void setStartDate(Date startDate) {
         this.startDate = startDate;
     }
 
-    public Instant getEndDate() {
+    public Date getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Instant endDate) {
+    public void setEndDate(Date endDate) {
         this.endDate = endDate;
     }
 
@@ -119,27 +119,19 @@ public class AnnAnime implements Serializable {
         this.websites = websites;
     }
 
-    public Integer getRatingVotes() {
+    public Double getRatingVotes() {
         return ratingVotes;
     }
 
-    public void setRatingVotes(Integer ratingVotes) {
+    public void setRatingVotes(Double ratingVotes) {
         this.ratingVotes = ratingVotes;
     }
 
-    public Integer getRatingScore() {
+    public Double getRatingScore() {
         return ratingScore;
     }
 
-    public void setRatingScore(Integer ratingScore) {
+    public void setRatingScore(Double ratingScore) {
         this.ratingScore = ratingScore;
-    }
-
-    public List<String> getEpisodeTitles() {
-        return episodeTitles;
-    }
-
-    public void setEpisodeTitles(List<String> episodeTitles) {
-        this.episodeTitles = episodeTitles;
     }
 }
