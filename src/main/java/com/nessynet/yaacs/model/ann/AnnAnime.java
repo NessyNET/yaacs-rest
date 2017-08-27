@@ -9,7 +9,7 @@ import java.util.List;
 public class AnnAnime implements Serializable {
 	private static final long serialVersionUID = 5235431395737686598L;
 	private Integer id;
-	private Integer gid; //TODO: long
+	private Long gid; //TODO: long
 	private String type;
 	private String name;
 	private Instant fetchedOn;
@@ -31,11 +31,11 @@ public class AnnAnime implements Serializable {
 		this.id = id;
 	}
 
-	public Integer getGid() {
+	public Long getGid() {
 		return gid;
 	}
 
-	public void setGid(Integer gid) {
+	public void setGid(Long gid) {
 		this.gid = gid;
 	}
 

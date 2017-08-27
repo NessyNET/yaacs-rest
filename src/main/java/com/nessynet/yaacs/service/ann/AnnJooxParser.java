@@ -26,7 +26,7 @@ public class AnnJooxParser {
 			  .forEach(animeDoc -> {
 				  AnnAnime annAnime = new AnnAnime();
 				  annAnime.setId(Integer.parseInt($(animeDoc).attr("id")));
-				  annAnime.setGid(Integer.parseInt($(animeDoc).attr("gid")));
+				  annAnime.setGid(Long.parseLong($(animeDoc).attr("gid")));
 				  annAnime.setType($(animeDoc).attr("type"));
 				  annAnime.setName($(animeDoc).attr("name"));
 				  annAnime.setFetchedOn(Instant.parse($(animeDoc).attr("generated-on")));
