@@ -2,6 +2,7 @@ package com.nessynet.yaacs.service.ann;
 
 import java.net.URI;
 
+import com.nessynet.yaacs.configuration.ANNConfigurationProperties;
 import com.nessynet.yaacs.model.ann.AnnAnime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -14,11 +15,13 @@ public class AnnService {
 
 	private AnnJooxParser annJooxParser;
 	private RestTemplate annRestTemplate;
+	private ANNConfigurationProperties props;
 
 	@Autowired
-	public AnnService(final AnnJooxParser annJooxParser, final RestTemplate annRestTemplate) {
+	public AnnService(final AnnJooxParser annJooxParser, final RestTemplate annRestTemplate, final ANNConfigurationProperties props) {
 		this.annJooxParser = annJooxParser;
 		this.annRestTemplate = annRestTemplate;
+		this.props = props;
 	}
 
 	public void setAnnJooxParser(AnnJooxParser annJooxParser) {
@@ -30,7 +33,7 @@ public class AnnService {
 	}
 
 	public AnnAnime searchById(final Integer id) {
-		URI queryUri = UriComponentsBuilder.newInstance()
+		URI queryUri = UriComponentsBuilder.fromUriString(props.getApiUrl())
 										   .queryParam("anime", id)
 										   .build()
 										   .toUri();

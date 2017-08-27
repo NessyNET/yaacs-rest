@@ -11,8 +11,7 @@ public class ANNConfiguration {
 
 	@Bean
 	public RestTemplate annRestTemplate(RestTemplateBuilder builder, ANNConfigurationProperties props) {
-		return builder.rootUri(props.getApiUrl())
-					  .build();
+		return builder.build();
 	}
 
 	@Bean
