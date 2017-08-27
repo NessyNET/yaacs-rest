@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class YaacsController {
 
-    @RequestMapping("/hello")
-    @ResponseBody
-    public String hello() {
-        return "Hello!";
-    }
+	@RequestMapping("/hello")
+	@ResponseBody
+	public String hello() {
+		return "Hello!";
+	}
 }

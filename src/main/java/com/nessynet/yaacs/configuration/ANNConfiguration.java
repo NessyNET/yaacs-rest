@@ -1,25 +1,22 @@
 package com.nessynet.yaacs.configuration;
 
-import com.nessynet.yaacs.service.ann.AnnAnimeHandler;
+import com.nessynet.yaacs.service.ann.AnnJooxParser;
+import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.xml.sax.SAXException;
-
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.parsers.SAXParser;
-import javax.xml.parsers.SAXParserFactory;
+import org.springframework.web.client.RestTemplate;
 
 @Configuration
 public class ANNConfiguration {
 
-    @Bean
-    public SAXParser annXmlParser() throws ParserConfigurationException, SAXException {
-        SAXParserFactory factory = SAXParserFactory.newInstance();
-        return factory.newSAXParser();
-    }
+	@Bean
+	public RestTemplate annRestTemplate(RestTemplateBuilder builder, ANNConfigurationProperties props) {
+		return builder.rootUri(props.getApiUrl())
+					  .build();
+	}
 
-    @Bean
-    public AnnAnimeHandler annAnimeHandler() {
-        return new AnnAnimeHandler();
-    }
+	@Bean
+	public AnnJooxParser annJooxParser() {
+		return new AnnJooxParser();
+	}
 }
