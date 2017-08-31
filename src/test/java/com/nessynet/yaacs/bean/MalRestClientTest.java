@@ -1,4 +1,4 @@
-package com.nessynet.yaacs.service.mal;
+package com.nessynet.yaacs.bean;
 
 import com.nessynet.yaacs.configuration.MalConfigurationProperties;
 import org.junit.Before;

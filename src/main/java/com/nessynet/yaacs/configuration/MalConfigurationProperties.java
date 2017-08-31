@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Configuration;
 public class MalConfigurationProperties {
 
     private String apiUrl;
+    private String enrichmentUrl;
     private String username;
     private String password;
 
@@ -17,6 +18,14 @@ public class MalConfigurationProperties {
 
     public void setApiUrl(String apiUrl) {
         this.apiUrl = apiUrl;
+    }
+
+    public String getEnrichmentUrl() {
+        return enrichmentUrl;
+    }
+
+    public void setEnrichmentUrl(String enrichmentUrl) {
+        this.enrichmentUrl = enrichmentUrl;
     }
 
     public String getUsername() {

@@ -1,4 +1,4 @@
-package com.nessynet.yaacs.model.mal;
+package com.nessynet.yaacs.model;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;

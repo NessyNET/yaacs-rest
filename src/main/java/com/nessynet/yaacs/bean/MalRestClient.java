@@ -1,6 +1,5 @@
-package com.nessynet.yaacs.service.mal;
+package com.nessynet.yaacs.bean;
 
-import com.fasterxml.jackson.annotation.JacksonInject;
 import com.nessynet.yaacs.configuration.MalConfigurationProperties;
 import org.apache.commons.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +21,7 @@ public class MalRestClient {
         this.malConfigurationProperties=malConfigurationProperties;
     }
 
-    private HttpHeaders preparedHttpHeaders(){
+    private HttpHeaders prepareHttpHeaders(){
         HttpHeaders headers = new HttpHeaders();
 
         String plainCreds = malConfigurationProperties.getUsername()+":"+malConfigurationProperties.getPassword();
@@ -34,7 +33,7 @@ public class MalRestClient {
     }
 
     public String invokeAnimeSearch(String animeTitle){
-        HttpEntity<String> httpEntity = new HttpEntity<>(preparedHttpHeaders());
+        HttpEntity<String> httpEntity = new HttpEntity<>(prepareHttpHeaders());
         ResponseEntity<String> responseEntity= restTemplate.exchange(malConfigurationProperties.getApiUrl()+animeTitle, HttpMethod.GET, httpEntity, String.class);
         return responseEntity.getBody();
     }

@@ -1,6 +1,6 @@
-package com.nessynet.yaacs.service.mal;
+package com.nessynet.yaacs.bean;
 
-import com.nessynet.yaacs.model.mal.MalAnime;
+import com.nessynet.yaacs.model.MalAnime;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.joox.Match;

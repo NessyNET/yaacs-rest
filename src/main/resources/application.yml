@@ -3,6 +3,7 @@ spring:
     name: yaacs-rest
 mal:
   apiUrl: https://myanimelist.net/api/anime/search.xml?q=
+  enrichmentUrl: https://myanimelist.net/anime/
   username: yaacs-bot
   password: 86137J4G6OyB0RQy
 logging:

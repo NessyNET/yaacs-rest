@@ -1,8 +1,7 @@
-package com.nessynet.yaacs.service.mal;
+package com.nessynet.yaacs.bean;
 
-import com.nessynet.yaacs.model.mal.MalAnime;
+import com.nessynet.yaacs.model.MalAnime;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.nio.file.Files;
