@@ -29,7 +29,7 @@ public class MalRestClientTest {
     public void setUp() throws Exception {
         String body = new String(Files.readAllBytes(
                 Paths.get(getClass().getClassLoader()
-                        .getResource("mal-anime-search-response.xml")
+                        .getResource("mal/mal-anime-search-response.xml")
                         .toURI())));
 
         ResponseEntity responseEntity = new ResponseEntity(body, HttpStatus.OK);

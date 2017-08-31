@@ -1,6 +1,8 @@
 package com.nessynet.yaacs.model.mal;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -148,5 +150,24 @@ public class MalAnime implements Serializable{
                 .append(synopsis, malAnime.getSynopsis())
                 .append(imageUrl, malAnime.getImageUrl())
                 .isEquals();
+    }
+
+    @Override
+    public String toString(){
+        return new ToStringBuilder(this, ToStringStyle.MULTI_LINE_STYLE)
+                .append("id", this.getId())
+                .append("title", this.getTitle())
+                .append("englishTitle", this.getEnglishTitle())
+                .append("synonyms", this.getSynonyms())
+                .append("episodes", this.getEpisodes())
+                .append("score", this.getScore())
+                .append("type", this.getType())
+                .append("status", this.getStatus())
+                .append("startDate", this.getStartDate())
+                .append("endDate", this.getEndDate())
+                .append("fetchedOn", this.getFetchedOn())
+                .append("synopsis", this.getSynopsis())
+                .append("imageUrl", this.getImageUrl())
+                .build();
     }
 }
