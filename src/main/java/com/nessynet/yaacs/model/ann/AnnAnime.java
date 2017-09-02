@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBDocument;
+
+@DynamoDBDocument
 public class AnnAnime implements Serializable {
 	private static final long serialVersionUID = 5235431395737686598L;
 	private Integer id;
