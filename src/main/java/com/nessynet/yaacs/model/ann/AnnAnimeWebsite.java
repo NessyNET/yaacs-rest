@@ -2,6 +2,9 @@ package com.nessynet.yaacs.model.ann;
 
 import java.io.Serializable;
 
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBDocument;
+
+@DynamoDBDocument
 public class AnnAnimeWebsite implements Serializable {
 	private static final long serialVersionUID = 4740771480041264199L;
 	private String type;

@@ -15,7 +15,7 @@ public class AnnAnime implements Serializable {
 	private Long gid; //TODO: long
 	private String type;
 	private String name;
-	private Instant fetchedOn;
+	private Date fetchedOn;
 	private List<AnnAnimeAltTitle> altTitles = new ArrayList<>();
 	private List<String> generes = new ArrayList<>();
 	private String summary;
@@ -58,11 +58,11 @@ public class AnnAnime implements Serializable {
 		this.name = name;
 	}
 
-	public Instant getFetchedOn() {
+	public Date getFetchedOn() {
 		return fetchedOn;
 	}
 
-	public void setFetchedOn(Instant fetchedOn) {
+	public void setFetchedOn(Date fetchedOn) {
 		this.fetchedOn = fetchedOn;
 	}
 
