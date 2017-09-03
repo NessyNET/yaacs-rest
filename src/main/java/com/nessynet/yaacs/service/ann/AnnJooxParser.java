@@ -2,7 +2,6 @@ package com.nessynet.yaacs.service.ann;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -34,11 +33,7 @@ public class AnnJooxParser {
 				  annAnime.setGid(Long.parseLong($(animeDoc).attr("gid")));
 				  annAnime.setType($(animeDoc).attr("type"));
 				  annAnime.setName($(animeDoc).attr("name"));
-				  try {
-					  annAnime.setFetchedOn(annDateFormat.parse($(animeDoc).attr("generated-on")));
-				  } catch (ParseException e) {
-					  e.printStackTrace();
-				  }
+				  annAnime.setFetchedOn(parseFetchedOnDate($(animeDoc).attr("generated-on")));
 				  annAnime.getAltTitles()
 						  .addAll(parseAltTitles($(animeDoc).find("info")
 															.filter(attr("type", "Alternative title"))));
@@ -116,6 +111,15 @@ public class AnnJooxParser {
 			} catch (ParseException e) {
 				e.printStackTrace();
 			}
+		}
+		return null;
+	}
+
+	protected Date parseFetchedOnDate(final String fetchedOn) {
+		try {
+			return annDateFormat.parse(fetchedOn);
+		} catch (ParseException e) {
+			e.printStackTrace();
 		}
 		return null;
 	}

@@ -45,7 +45,7 @@ public class AnnJooxParserTest {
 		assertThat(annAnime.getGid()).isEqualTo(2053454777);
 		assertThat(annAnime.getType()).isEqualTo("TV");
 		assertThat(annAnime.getName()).isEqualTo("Spice and Wolf");
-		assertThat(annAnime.getFetchedOn()).isEqualTo(Instant.parse("2017-08-03T13:16:10Z"));
+		assertThat(annAnime.getFetchedOn().toInstant()).isEqualTo(Instant.parse("2017-08-03T13:16:10Z"));
 		assertThat(annAnime.getAltTitles()).hasSize(8);
 	}
 
