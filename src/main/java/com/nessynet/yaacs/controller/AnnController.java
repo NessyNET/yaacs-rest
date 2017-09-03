@@ -1,6 +1,8 @@
 package com.nessynet.yaacs.controller;
 
+import com.nessynet.yaacs.model.Anime;
 import com.nessynet.yaacs.model.ann.AnnAnime;
+import com.nessynet.yaacs.repository.AnimeRepository;
 import com.nessynet.yaacs.service.ann.AnnService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,16 +20,27 @@ public class AnnController {
 	public static final Logger logger = LoggerFactory.getLogger(AnnController.class);
 
 	private AnnService annService;
+	private AnimeRepository animeRepository;
 
 	@Autowired
-	public AnnController(final AnnService annService) {
+	public AnnController(final AnnService annService, final AnimeRepository animeRepository) {
 		this.annService = annService;
+		this.animeRepository = animeRepository;
 	}
 
 	@RequestMapping(value = "/search/id/{id}", method = RequestMethod.GET)
-	public ResponseEntity<AnnAnime> searchById(@PathVariable("id") int id) {
+	public ResponseEntity<Anime> searchById(@PathVariable("id") int id) {
 		logger.info("Searching ANN by ID [{}]", id);
-		AnnAnime annAnime = annService.searchById(id);
-		return new ResponseEntity<>(annAnime, HttpStatus.OK);
+
+		Anime anime = animeRepository.findAnimeByAnnId(id);
+		if(anime == null) {
+			anime = new Anime();
+			AnnAnime annAnime = annService.searchById(id);
+			anime.setAnnAnime(annAnime);
+			anime.setAnnId(annAnime.getId());
+			anime.setYaacsTitle(annAnime.getName());
+			animeRepository.save(anime);
+		}
+		return new ResponseEntity<>(anime, HttpStatus.OK);
 	}
 }
