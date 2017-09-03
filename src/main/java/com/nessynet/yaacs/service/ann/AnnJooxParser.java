@@ -6,6 +6,7 @@ import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 import com.nessynet.yaacs.model.ann.AnnAnime;
 import com.nessynet.yaacs.model.ann.AnnAnimeAltTitle;
@@ -18,8 +19,12 @@ import static org.joox.JOOX.attr;
 public class AnnJooxParser {
 	private final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
+	//2017-08-03T13:16:10Z
+	private final SimpleDateFormat annDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
+
 
 	public List<AnnAnime> extractAnime(final String xml) {
+		annDateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
 		List<AnnAnime> annAnimeList = new ArrayList<>();
 
 		$(xml).find("anime")
@@ -29,7 +34,11 @@ public class AnnJooxParser {
 				  annAnime.setGid(Long.parseLong($(animeDoc).attr("gid")));
 				  annAnime.setType($(animeDoc).attr("type"));
 				  annAnime.setName($(animeDoc).attr("name"));
-				  annAnime.setFetchedOn(Instant.parse($(animeDoc).attr("generated-on")));
+				  try {
+					  annAnime.setFetchedOn(annDateFormat.parse($(animeDoc).attr("generated-on")));
+				  } catch (ParseException e) {
+					  e.printStackTrace();
+				  }
 				  annAnime.getAltTitles()
 						  .addAll(parseAltTitles($(animeDoc).find("info")
 															.filter(attr("type", "Alternative title"))));
